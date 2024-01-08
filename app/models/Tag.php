@@ -2,10 +2,10 @@
 
 class Tag {
 	private $Tag_ID;
-	private $Name;
+	private $Title;
 
 	public function __construct() {
-
+		$this->Tag_ID = uniqid();
 	}
 
 	public function __set($property, $value) {

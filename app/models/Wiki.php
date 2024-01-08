@@ -3,14 +3,16 @@
 class Wiki {
 	private $Wiki_ID;
 	private $Title;
-	private $Description;
-	private $Date;
+	private $Contenu;
+	private $Created_Date;
+	private $Updated_Date;
 	private $Archived;
+	private $Deleted;
 	private $Category_ID;
 	private $User_ID;
 
 	public function __construct() {
-
+		$this->Wiki_ID = uniqid();
 	}
 
 	public function __set($property, $value) {

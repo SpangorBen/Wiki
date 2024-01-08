@@ -8,7 +8,7 @@ class User {
 	private $Role;
 
 	public function __construct() {
-
+		$this->User_ID = uniqid();
 	}
 
 	public function __set($property, $value) {

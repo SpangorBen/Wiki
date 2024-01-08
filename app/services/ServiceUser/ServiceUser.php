@@ -12,8 +12,13 @@ class ServiceUser implements IServiceUser
     {
         // Implement the method here
         try {
-            $this->db->query("INSERT INTO users");
+            $this->db->query("INSERT INTO Users(User_ID, Name, Email, Password) VALUES (:User_ID, :Name, :Email, :Password, :Role)");
+            $this->db->bind(':User_ID', $user->User_ID);
+            $this->db->bind(':Name', $user->Name);
+            $this->db->bind(':Email', $user->Email);
+            $this->db->bind(':Password', $user->Password);
 
+            $this->db->execute();
         } catch (PDOException $e) {
             die($e->getMessage());
         }
@@ -33,6 +38,13 @@ class ServiceUser implements IServiceUser
     public function Display()
     {
         // Implement the method here
+        try {
+            $this->db->query("SELECT * FROM Users WHERE Role = 1");
+            $Auteurs = $this->db->resultSet();
+            return $Auteurs;
+        } catch(PDOException $e){
+            die($e->getMessage());
+        }
     }
 
 }

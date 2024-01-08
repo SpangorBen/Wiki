@@ -1,12 +1,12 @@
 <?php
 
 class WikisTag {
-	private $id;
+	private $WikiTag_ID;
 	private $Tag_ID;
 	private $Wiki_ID;
 
 	public function __construct() {
-
+		$this->WikiTag_ID = uniqid();
 	}
 
 	public function __set($property, $value) {

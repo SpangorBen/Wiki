@@ -6,7 +6,7 @@ class Category {
 	private $Description;
 
 	public function __construct() {
-
+		$this->Category_ID = uniqid();
 	}
 
 	public function __set($property, $value) {
