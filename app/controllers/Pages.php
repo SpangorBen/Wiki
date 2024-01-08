@@ -10,5 +10,9 @@ class Pages extends Controller
     public function login(){
         $this->view('pages/login');
     }
+
+    public function test(){
+        $this->view('pages/test');
+    }
 }
 ?>
