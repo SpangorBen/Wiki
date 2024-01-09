@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css">
     <title><?php echo SITENAME ?></title>
@@ -16,7 +17,7 @@
     <!-- Navigation -->
     <div class="bg-gray-900 px-2 lg:px-4 py-2 lg:py-10 sm:rounded-xl flex lg:flex-col justify-between">
       <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-2">
-        <a class="text-white/50 p-4 inline-flex justify-center rounded-md hover:bg-gray-800 hover:text-white smooth-hover" href="#">
+        <a class="text-white/50 p-4 inline-flex justify-center rounded-md hover:bg-gray-800 hover:text-white smooth-hover" href="tags">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 20 20" fill="currentColor">
             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
           </svg>
@@ -71,11 +72,20 @@
             </svg>
           </a>
           <a class="text-white/50 group-hover:text-white group-hover:smooth-hover text-center" href="#" onclick="openMyPopup()">Add Category</a>
-          <!-- <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            Add Category
-          </button> -->
         </div>
-        <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
+
+        <!-- Wikis Display -->
+
+        <?php foreach($data as $category) {?>
+          <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
+          <img class="w-20 h-20 object-cover object-center rounded-full" src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="cuisine" />
+          <h4 class="text-white text-2xl font-bold capitalize text-center"><?php echo $category->Category_Title;?></h4>
+          <p class="text-white/50"><?php echo $category->Total_Wikis;?></p>
+          <p class="absolute top-2 text-white/20 inline-flex items-center text-xs"><?php echo $category->Archived_Count?> <span class="ml-2 w-2 h-2 block bg-red-500 rounded-full group-hover:animate-pulse"></span></p>
+        </div>
+        <?php }?>
+
+        <!-- <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
           <img class="w-20 h-20 object-cover object-center rounded-full" src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="cuisine" />
           <h4 class="text-white text-2xl font-bold capitalize text-center">History</h4>
           <p class="text-white/50">55 Wikis</p>
@@ -116,21 +126,15 @@
           <h4 class="text-white text-2xl font-bold capitalize text-center">Science</h4>
           <p class="text-white/50">108 Wikis</p>
           <p class="absolute top-2 text-white/20 inline-flex items-center text-xs">86 Archived <span class="ml-2 w-2 h-2 block bg-red-500 rounded-full group-hover:animate-pulse"></span></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </div>
 
 
-
-<!-- Modal toggle -->
-<!-- <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Toggle modal
-</button> -->
-
-<!-- Main modal -->
-<div id="Add" tabindex="-1" aria-hidden="true" class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-10%] p-5 w-full rounded-md shadow-sm z-50 hidden">
+<!-- Add Categroy -->
+<div id="Add" tabindex="-1" aria-hidden="true" class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-30%] p-5 w-full rounded-md shadow-sm z-50 hidden">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">

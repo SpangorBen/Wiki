@@ -7,8 +7,14 @@ class Dashboard extends Controller {
         $this->ServiceCategory = $this->service('ServiceCategory');
     }
 
+
+    public function tags(){
+        $this->view('dashboard/tags');
+    }
+
     public function home(){
-        $this->view('dashboard/home');
+        $data = $this->ServiceCategory->Display();
+        $this->view('dashboard/home', $data);
     }
 
     public function addCategory(){
@@ -17,6 +23,6 @@ class Dashboard extends Controller {
             $this->Category->Description = $_POST['description'];
             $this->ServiceCategory->Add($this->Category);
         }
-        $this->view('dashboard/home');
+        redirect('dashboard/home');
     }
 }
