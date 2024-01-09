@@ -49,9 +49,6 @@ class ServiceCategory implements IServiceCategory
     {
         // Implement the method here
         try{
-            // $this->db->query("SELECT * FROM Category");
-            // $categories = $this->db->resultSet();
-            // $this->db->query("SELECT Category.*, count(*) AS countWikis FROM Wiki INNER JOIN Category ON Category.Category_ID = Wiki.Category_ID GROUP BY Wiki.Category_ID");
             $this->db->query("SELECT c.Category_ID, c.Title AS Category_Title, 
                 COUNT(w.Wiki_ID) AS Total_Wikis,
                 SUM(CASE WHEN w.Archived = 1 THEN 1 ELSE 0 END) AS Archived_Count
@@ -60,10 +57,6 @@ class ServiceCategory implements IServiceCategory
                 GROUP BY c.Category_ID, c.Title
             ");
             $count = $this->db->resultSet();
-            // $data = [
-            //     'category' => $categories,
-            //     'count' => $count
-            // ];
             return $count;
 
         } catch(PDOException $e){

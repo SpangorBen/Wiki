@@ -29,13 +29,13 @@
 
         .input {
             padding: 10px;
-            padding-right: 15rem;
+            padding-right: 18rem;
             height: 40px;
-            border: 2px solid #0B2447;
+            border: 2px solid #00FFFF;
             border-top: none;
             border-bottom: none;
             font-size: 16px;
-            background: transparent;
+            background: #FF00FF;
             outline: none;
             box-shadow: 7px 7px 0px 0px #0B2447;
             transition: all 0.5s;
@@ -48,18 +48,20 @@
 
         .label {
             position: absolute;
+            font-size: 1.5rem;
+            font-weight: 700;
             top: 10px;
             left: 10px;
-            color: #0B2447;
+            color: #F6F3E4;
             transition: all 0.5s;
             transform: scale(0);
-            z-index: -1;
+            z-index: 99;
         }
 
         .input-container .topline {
             position: absolute;
             content: "";
-            background-color: #0B2447;
+            background-color: #00FFFF;
             width: 0%;
             height: 2px;
             right: 0;
@@ -68,14 +70,14 @@
         }
 
         .input-container input[type="text"]:focus ~ .topline {
-            width: 35%;
+            width: 65%;
             transition: all 0.5s;
         }
 
         .input-container .underline {
             position: absolute;
             content: "";
-            background-color: #0B2447;
+            background-color: #00FFFF;
             width: 0%;
             height: 2px;
             right: 0;
@@ -89,7 +91,7 @@
         }
 
         .input-container input[type="text"]:focus ~ .label {
-            top: -10px;
+            top: -40px;
             transform: scale(1);
             transition: all 0.5s;
         }
@@ -98,7 +100,7 @@
 
 <body>
     <div class="input-container">
-        <input class="input" name="text" type="text">
+        <input class="input" name="text" type="text" placeholder="Email">
         <label class="label" for="input">Enter Your Email</label>
         <div class="topline"></div>
         <div class="underline"></div>
