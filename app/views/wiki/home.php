@@ -14,10 +14,10 @@
 <style>:root{
 ::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;border-radius:6px}::-webkit-scrollbar-thumb{background:#d5d5d5;border-radius:6px}::-webkit-scrollbar-thumb:hover{background:#c4c4c4}}</style>
 </head>
-<body class="bg-gray-200 font-sans leading-normal tracking-normal">
+<body class="bg-gray-200 font-sans leading-normal tracking-normal" style="background-image: url('../images/newnew.png'); background-repeat:no-repeat; background-size:cover;">
 
 	<!--Header-->
-	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('../images/Thank.png'); height: 60vh; max-height:460px; background-size:cover; background-position:center;">
+	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('../images/TT.png'); height: 60vh; max-height:460px; background-size:cover; background-position:center;">
 			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
 				<!--Title-->
 					<p class="text-white font-extrabold text-3xl md:text-5xl">
@@ -39,7 +39,7 @@
 						<div class="flex w-1/2 pl-4 text-sm">
 							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
 								<li class="mr-2">
-								<a class="inline-block py-2 px-2 text-white no-underline hover:underline" href="post.html">POST</a>
+								<a class="inline-block py-2 px-2 text-black no-underline hover:underline" href="post.html">POST</a>
 								</li>
 								<li class="mr-2">
 								<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2" href="multimenu post.html">MULTIMENU POST</a>
@@ -54,7 +54,8 @@
 						</div>
 
 
-						<div class="flex w-1/2 justify-end content-center">		
+						<div class="flex w-1/2 justify-end content-center">
+                            <a href="#" class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-3 px-2">Login</a>
 							<a class="inline-block text-gray-500 no-underline hover:text-white hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar" data-tippy-content="@twitter_handle" href="https://twitter.com/intent/tweet?url=#">
 								<svg class="fill-current h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
 							</a>
@@ -66,17 +67,24 @@
 					</div>
 				</nav>
 
-				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t" style="background-image: url(../images/bgcolorfulbg.jpg); background-repeat:no-repeat; background-size:cover;">
+				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t p-4" style="background-color: transparent;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.32);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.4px);
+-webkit-backdrop-filter: blur(7.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);">
 					
 				<!--Lead Card-->
-				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
+				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg" style="background-color: #EA87C7;">
 					<a href="post.html" class="flex flex-wrap no-underline hover:no-underline">
 						<div class="w-full md:w-2/3 rounded-t">	
 							<img src="https://source.unsplash.com/collection/494263/800x600" class="h-full w-full shadow">
 						</div>
 
 						<div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
-							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg" style="background-color: #D592FF;">
 								<p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">GETTING STARTED</p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow Tailwind CSS and Ghost fan</div>
 								<p class="text-gray-800 font-serif text-base px-6 mb-5">
@@ -251,9 +259,9 @@
 			
 			
 				<!--Subscribe-->	
-				<div class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center">
-					<h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to Ghostwind CSS</h2>
-					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest posts delivered right to your inbox</h3>
+				<div class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center" style="background-color: #BE4BFF;">
+					<h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to the wikis</h2>
+					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest wikis delivered right to your inbox</h3>
 					<div class="w-full text-center pt-4">
 						<form action="#">
 							<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
