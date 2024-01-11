@@ -1,5 +1,7 @@
 <?php
 
+require 'IServiceTag.php';
+
 class ServiceTag implements IServiceTag
 {
 	private $db;
@@ -42,6 +44,7 @@ class ServiceTag implements IServiceTag
             $this->db->query("DELETE FROM Tags WHERE Tag_ID = :Tag_ID");
             $this->db->bind(':Tag_ID', $Tag_ID);
 
+            $this->db->execute();
         } catch(PDOException $e){
             die($e->getMessage());
         }

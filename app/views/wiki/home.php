@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Starter Template - Ghostwind CSS : Tailwind Toolbox</title>
+    <title>Wikiiis</title>
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
 <style>:root{
 ::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;border-radius:6px}::-webkit-scrollbar-thumb{background:#d5d5d5;border-radius:6px}::-webkit-scrollbar-thumb:hover{background:#c4c4c4}}</style>
 </head>
-<body class="bg-gray-200 font-sans leading-normal tracking-normal" style="background-image: url('../images/newnew.png'); background-repeat:no-repeat; background-size:cover;">
+<body class="bg-gray-200 font-sans leading-normal tracking-normal" style="background-image: url('../images/newnew.png'); background-repeat:no-repeat; background-size:cover; background-position: center;">
 
 	<!--Header-->
 	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('../images/TT.png'); height: 60vh; max-height:460px; background-size:cover; background-position:center;">
@@ -24,18 +26,19 @@
 						Wikis just for you
 					</p>
 					<p class="text-xl md:text-2xl text-gray-500">Welcome dear reader</p>
+                    <a href="#" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-3 px-6 rounded shadow hover:bg-blue-400" onclick="openMyPopup()">Add new Wiki</a>
 			</div>
 		</div>
-		
+
 		<!--Container-->
 		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
-			
+
 			<div class="mx-0 sm:mx-6">
-				
+
 				<!--Nav-->
 				<nav class="mt-0 w-full">
 					<div class="container mx-auto flex items-center">
-						
+
 						<div class="flex w-1/2 pl-4 text-sm">
 							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
 								<li class="mr-2">
@@ -68,14 +71,13 @@
 				</nav>
 
 				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t p-4" style="background-color: transparent;
-/* From https://css.glass */
 background: rgba(255, 255, 255, 0.32);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(7.4px);
 -webkit-backdrop-filter: blur(7.4px);
 border: 1px solid rgba(255, 255, 255, 0.3);">
-					
+
 				<!--Lead Card-->
 				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg" style="background-color: #EA87C7;">
 					<a href="post.html" class="flex flex-wrap no-underline hover:no-underline">
@@ -86,9 +88,9 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 						<div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
 							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg" style="background-color: #D592FF;">
 								<p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow Tailwind CSS and Ghost fan</div>
+								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow reader</div>
 								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									This starter template is an attempt to replicate the default Ghost theme "Casper" using Tailwind CSS and vanilla Javascript.
+                                Get ahead of the curve with our newly unveiled selection of trendy wikis, offering unique insights and in-depth exploration into contemporary themes
 								</p>
 							</div>
 
@@ -266,7 +268,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 						<form action="#">
 							<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
 								<input type="email" placeholder="youremail@example.com" class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none">
-								<button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+								<button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-blue-400">Subscribe</button>
 							</div>
 						</form>
 					</div>
@@ -291,6 +293,59 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 	
 
 	</div>
+
+	<!-- Add Categroy -->
+<div id="Add" tabindex="-1" aria-hidden="true" class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-10%] p-5 w-full rounded-md shadow-sm z-50 hidden">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Wiki
+                </h3>
+                <button type="button" onclick="closeMyPopup()" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form action="<?php echo URLROOT; ?>dashboard/addCategory" method="post" class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Wiki title</label>
+                        <input type="text" name="title" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Category name" required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                        <input type="test" name="description" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="..." required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                        <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">Select category</option>
+                            <option value="TV">TV/Monitors</option>
+                            <option value="PC">PC</option>
+                            <option value="GA">Gaming/Console</option>
+                            <option value="PH">Phones</option>
+                        </select>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category Description</label>
+                        <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write category description here"></textarea>                    
+                    </div>
+                </div>
+                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                    Add new wiki
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 	<footer class="bg-gray-900">	
@@ -319,9 +374,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 					</ul>
 				</div>
 			</div>
-        
 
-		
 		</div>
 	</footer>
 
@@ -329,7 +382,16 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
     <script src="https://unpkg.com/tippy.js@6"></script>
 	<script>
 		//Init tooltips
-		tippy('.avatar')
+		tippy('.avatar');
+	</script>
+	<script>
+
+		function openMyPopup() {
+			document.getElementById('Add').style.display = 'block';
+		}
+		function closeMyPopup() {
+			document.getElementById('Add').style.display = 'none';
+		}
 	</script>
 </body>
 </html>
