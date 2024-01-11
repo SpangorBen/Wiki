@@ -1,5 +1,6 @@
 <?php
 
+require 'IServiceUser.php';
 class ServiceUser implements IServiceUser
 {
 	private $db;
@@ -12,7 +13,7 @@ class ServiceUser implements IServiceUser
     {
         // Implement the method here
         try {
-            $this->db->query("INSERT INTO Users(User_ID, Name, Email, Password) VALUES (:User_ID, :Name, :Email, :Password, :Role)");
+            $this->db->query("INSERT INTO Users(User_ID, Name, Email, Password) VALUES (:User_ID, :Name, :Email, :Password)");
             $this->db->bind(':User_ID', $user->User_ID);
             $this->db->bind(':Name', $user->Name);
             $this->db->bind(':Email', $user->Email);

@@ -86,3 +86,121 @@
     transform: translateY(0px);
     transition-duration: 0.3s;
   }
+
+/* Checkbox style */
+
+  .cyberpunk-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #30cfd0;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .cyberpunk-checkbox:before {
+    content: "";
+    background-color: #30cfd0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cyberpunk-checkbox:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cyberpunk-checkbox-label {
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Input */
+
+  .input-container {
+    position: relative;
+    top: 30%;
+}
+
+.input {
+    padding: 10px;
+    padding-right: 10rem;
+    height: 40px;
+    border: 2px solid #00FFFF;
+    border-top: none;
+    border-bottom: none;
+    font-size: 16px;
+    background: #FF00FF;
+    outline: none;
+    box-shadow: 7px 7px 0px 0px #0B2447;
+    transition: all 0.5s;
+}
+
+.input:focus {
+    box-shadow: none;
+    transition: all 0.5s;
+}
+
+.labelinput {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 700;
+    top: 10px;
+    left: 10px;
+    color: #F6F3E4;
+    transition: all 0.5s;
+    transform: scale(0);
+    z-index: 99;
+}
+
+.input-container .topline {
+    position: absolute;
+    content: "";
+    background-color: #00FFFF;
+    width: 0%;
+    height: 2px;
+    right: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .topline {
+    width: 65%;
+    transition: all 0.5s;
+}
+
+.input-container .underline {
+    position: absolute;
+    content: "";
+    background-color: #00FFFF;
+    width: 0%;
+    height: 2px;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .underline {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .labelinput {
+    top: -40px;
+    transform: scale(1);
+    transition: all 0.5s;
+}

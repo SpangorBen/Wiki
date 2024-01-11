@@ -49,7 +49,7 @@ class ServiceCategory implements IServiceCategory
     {
         // Implement the method here
         try{
-            $this->db->query("SELECT c.Category_ID, c.Title AS Category_Title, 
+            $this->db->query("SELECT c.Category_ID, c.Title AS Title, 
                 COUNT(w.Wiki_ID) AS Total_Wikis,
                 SUM(CASE WHEN w.Archived = 1 THEN 1 ELSE 0 END) AS Archived_Count
                 FROM Category c

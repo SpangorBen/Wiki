@@ -3,65 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet"/> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css">
     <title><?php echo SITENAME ?></title>
 </head>
+<body class=" bg-gray-100" style="background-image: url('../images/TT.png'); background-position:center; background-size:cover;">
 
-<body class="">
-<section class="vh-100" style="background-image: url('https://i.pinimg.com/564x/e7/ac/5e/e7ac5ee341b4ef452951aac6b4c3deac.jpg'); background-repeat:no-repeat; background-size:cover;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card" style="border-radius: 1rem; background-color: transparent;">
-          <div class="row g-0" >
-            <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <!-- <img src="https://i.pinimg.com/564x/10/c7/56/10c756e166be6af77a89ed4fd8b71b5e.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height:100%;" /> -->
-              <img src="../images/bglogbg.png" alt="login form" class="" style="border-radius: 1rem;" />
-
-            </div>
-            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-              <div class="card-body p-4 p-lg-5 text-black">
-
-                <form action="<?php echo URLROOT; ?>/users/login" method="post" style="">
-
-                  <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                    <span class="h1 fw-bold mb-0">Logo</span>
-                  </div>
-
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
-
-                  <div class="form-outline mb-4">
-                    <input type="text" id="form2Example17" class="form-control form-control-lg" name="username"/>
-                    <label class="form-label" for="form2Example17">Username</label>
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" name="password"/>
-                    <label class="form-label" for="form2Example27">Password</label>
-                  </div>
-
-                  <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block">Login</button>
-                  </div>
-
-                  <a class="small text-muted" href="#!">Forgot password?</a>
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                      style="color: #393f81;">Register here</a></p>
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
-                </form>
-
+<div class="font-[sans-serif] text-[#EB78B9]">
+      <div class="min-h-fit flex flex-col items-center justify-center">
+        <div class="grid md:grid-cols-2 items-center gap-0 max-w-6xl w-full p-8 m-1 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md" style="/* From https://css.glass */
+background: rgba(255, 255, 255, 0.25);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(9.6px);
+-webkit-backdrop-filter: blur(9.6px);
+border: 1px solid rgba(255, 255, 255, 0.3);">
+          <div class="md:max-w-md w-full sm:px-6 py-4 bg-[#47548C] rounded-xl">
+            <form>
+              <div class="mb-12">
+                <h3 class="text-3xl font-extrabold">Sign in</h3>
+                <p class="text-sm mt-4 ">Don't have an account <a href="register" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
               </div>
-            </div>
+              <div>
+                <label class="text-xs block mb-2">Email</label>
+                <div class="relative flex items-center">
+                  <input name="email" type="text" required class="w-full text-sm text-black border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none" placeholder="Enter email" />
+                </div>
+              </div>
+              <div class="mt-8">
+                <label class="text-xs block mb-2">Password</label>
+                <div class="relative flex items-center">
+                  <input name="password" type="password" required class="w-full text-sm text-black border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none" placeholder="Enter password" />
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 mt-5">
+                <div class="flex items-center">
+                  <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                  <label for="remember-me" class="ml-3 block text-sm">
+                    Remember me
+                  </label>
+                </div>
+                <div>
+                  <a href="jajvascript:void(0);" class="text-blue-600 font-semibold text-sm hover:underline">
+                    Forgot Password?
+                  </a>
+                </div>
+              </div>
+              <div class="mt-12">
+                <button class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-[#E97DBF] hover:bg-[#C974FF] focus:outline-none">
+                  Sign in
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="md:h-full max-md:mt-10 bg-[#E982C3] rounded-xl lg:p-12 p-8">
+            <img src="../images/headvapor.jpg" class="w-full h-full object-contain" alt="login-image" />
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 </body>
-
+</html>

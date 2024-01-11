@@ -10,6 +10,7 @@ class Wiki {
 	private $Deleted;
 	private $Category_ID;
 	private $User_ID;
+	private $Description;
 
 	public function __construct() {
 		$this->Wiki_ID = uniqid();
