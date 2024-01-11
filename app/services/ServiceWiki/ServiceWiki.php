@@ -60,10 +60,10 @@ class ServiceWiki implements IServiceWiki
         try {
             $this->db->query("SELECT Wiki.*, Category.Title AS Category_Title, Users.Name AS Name
             FROM Wiki
-            INNER JOIN Category ON Category.Category_ID = Wiki.c=Category_ID
+            INNER JOIN Category ON Category.Category_ID = Wiki.Category_ID
             INNER JOIN Users ON Users.User_ID = Wiki.User_ID
             WHERE Wiki.Deleted = 0 AND Wiki.Archived = 0
-            ORDER BY Wikis.Updated_Date DESC");
+            ORDER BY Wiki.Updated_Date DESC");
             $Wikis = $this->db->resultSet();
             return $Wikis;
         } catch (PDOException $e) {

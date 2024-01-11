@@ -106,87 +106,49 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 				<!--Posts Container-->
 				<div class="flex flex-wrap justify-between pt-12 -mx-6">
 
+				<!--1/2 col -->
+					<?php $count = 0; foreach($data['wikis'] as $wiki){?>
+					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+						<?php $count++;?>
+						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+								<img src="https://source.unsplash.com/collection/3657445/800x600" class="h-full w-full rounded-t pb-6">
+								<p class="w-full text-gray-600 text-xs md:text-sm px-6"><?php echo $wiki->Category_Title?></p>
+								<div class="w-full font-bold text-xl text-gray-900 px-6"><?php echo $wiki->Title?></div>
+								<p class="text-gray-800 font-serif text-base px-6 mb-5"> <?php echo $wiki->Description?></p>
+							</a>
+						</div>
+						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+							<div class="flex items-center justify-between">
+								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="<?php echo $wiki->Name?>" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+							</div>
+						</div>
+					</div>
+					<?php if($count == 2){break;}?>
+					<?php }?>
+
 					<!--1/3 col -->
+					<?php foreach(array_slice($data['wikis'], 2) as $wiki){?>
 					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
 						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
 							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
 								<img src="https://source.unsplash.com/collection/225/800x600" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
+								<p class="w-full text-gray-600 text-xs md:text-sm px-6"><?php echo $wiki->Category_Title?></p>
+								<div class="w-full font-bold text-xl text-gray-900 px-6"><?php echo $wiki->Title?></div>
+								<p class="text-gray-800 font-serif text-base px-6 mb-5"><?php echo $wiki->Description?></p>
 							</a>
 						</div>
 						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
 							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="<?php echo $wiki->Name?>" src="http://i.pravatar.cc/300" alt="Avatar of Author">
 								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
 							</div>
 						</div>
 					</div>
-				
+					<?php }?>
+
 					
-					<!--1/3 col -->
-					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/3106804/800x600" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ip Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-							</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-					<!--1/3 col -->
-					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/539527/800x600" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full  font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-
-					<!--1/2 col -->
-					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/3657445/800x600" class="h-full w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
 
 					<!--1/2 col -->
 					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
@@ -313,7 +275,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
                     </div>
 					 <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Wiki Description</label>
-                        <input type="test" name="description" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="..." required="">
+                        <input type="test" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="..." required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
