@@ -71,6 +71,17 @@ class ServiceWiki implements IServiceWiki
         }
     }
 
+    public function GetWiki($Wiki_ID){
+        $this->db->query("SELECT Wiki.*, Category.Title AS Category_Title, Users.Name AS Name
+        FROM Wiki
+        INNER JOIN Category ON Category.Category_ID = Wiki.Category_ID
+        INNER JOIN Users ON Users.User_ID = Wiki.User_ID
+        WHERE Wiki.Wiki_ID = :id");
+        $this->db->bind(':id', $Wiki_ID);
+        // $this->db->execute();
+        return $this->db->single();
+    }
+
     public function WikiTag($Wiki_ID, $Tag_ID)
     {
         try{

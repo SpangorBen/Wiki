@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Starter Template - Ghostwind CSS : Tailwind Toolbox</title>
-		<meta name="author" content="name">
-    <meta name="description" content="description here">
-		<meta name="keywords" content="keywords,here">
-		    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> <!--Replace with your tailwind.css once created-->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="<?php echo URLROOT;?>/css/style.css">
+    <title><?php echo SITENAME ?></title>
 	<style>
 	.smooth {transition: box-shadow 0.3s ease-in-out;}
 	::selection{background-color: aliceblue}
@@ -76,8 +74,8 @@
 	
 	<!--Title-->
 	<div class="text-center pt-16 md:pt-32">
-		<p class="text-sm md:text-base text-green-500 font-bold">04 JULY 2023 <span class="text-gray-900">/</span> GETTING STARTED</p>
-		<h1 class="font-bold break-normal text-3xl md:text-5xl">Welcome to Ghostwind CSS</h1>
+		<p class="text-sm md:text-base text-green-500 font-bold"><?php echo $data->Created_Date?><span class="text-gray-900">/</span> <?php echo $data->Category_Title?></p>
+		<h1 class="font-bold break-normal text-3xl md:text-5xl"><?php echo $data->Title?></h1>
 	</div>
 
 	<!--image-->
@@ -95,32 +93,11 @@
 
 				<!--Lead Para-->
 				<p class="text-2xl md:text-3xl mb-5">
-					👋 Welcome fellow <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.tailwindcss.com">Tailwind CSS</a> and <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.ghost.org">Ghost</a> fan.  This starter template is an attempt to replicate the default Ghost theme <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://demo.ghost.io/welcome">"Casper"</a> using Tailwind CSS and vanilla Javascript.
+					👋 Welcome fellow Wiki reader.<br> This is your author: <a href="#" class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"><?php echo $data->Name?> </a> <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://demo.ghost.io/welcome"></a>
 				</p>
 
-				<p class="py-6">The basic blog page layout is available and all using the default Tailwind CSS classes (although there are a few hardcoded style tags). If you are going to use this in your project, you will want to convert the classes into components.</p>				
-			
-				<p class="py-6">Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam, pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum elementum.</p>
-
-				<ol>
-					<li class="py-3">Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo sit amet placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.</li>
-					<li class="py-3">Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo. Duis auctor ornare mauris, eu accumsan odio viverra in. Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec felis.</li>
-					<li class="py-3">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc vitae pretium elit. Cras leo mauris, tristique in risus ac, tristique rutrum velit. Mauris accumsan tempor felis vitae gravida. Cras egestas convallis malesuada. Etiam ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit, elementum odio et, consequat tellus.</li>
-				</ol>
-
-				<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
-
-				<p class="py-6">Example code block:</p>
-				<pre class="bg-gray-900 rounded text-white font-mono text-base p-4">
-					<code class="break-words whitespace-pre-wrap">
-&lt;header class="site-header outer"&gt;
-  &lt;div class="inner"&gt;
-    {{&gt; "site-nav"}}
-  &lt;/div&gt;
-&lt;/header&gt;
-					</code>
-				</pre>
-
+				<p class="py-6 text-2xl"><?php echo $data->Description?></p>
+				<p class="py-6"><?php echo $data->Contenu?></p>				
 												
 				<!--/ Post Content-->
 						
@@ -129,8 +106,8 @@
 			
 				<!--Subscribe-->	
 				<div class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center">
-					<h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to Ghostwind CSS</h2>
-					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest posts delivered right to your inbox</h3>
+					<h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to the wikis</h2>
+					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest wikis delivered right to your inbox</h3>
 					<div class="w-full text-center pt-4">
 						<form action="#">
 							<div class="max-w-sm mx-auto p-1 pr-0 flex flex-wrap items-center">
@@ -147,8 +124,8 @@
 				<div class="flex w-full items-center font-sans p-8 md:p-24">
 					<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
 					<div class="flex-1">
-						<p class="text-base font-bold text-base md:text-xl leading-none">Ghostwind CSS</p>
-						<p class="text-gray-600 text-xs md:text-base">Tailwind CSS version of Ghost's Casper theme by <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a></p>
+						<p class="text-base font-bold text-base md:text-xl leading-none"><?php echo $data->Name?></p>
+						<p class="text-gray-600 text-xs md:text-base">Author description <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.tailwindtoolbox.com">More about me</a></p>
 					</div>
 					<div class="justify-end">
 

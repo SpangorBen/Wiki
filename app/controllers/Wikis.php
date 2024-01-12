@@ -37,8 +37,13 @@ class Wikis extends Controller {
         redirect('wikis/home');
     }
 
-    public function wikipage(){
-        $this->view('wikis/wikipage');
+    public function author(){
+        $this->view('wikis/author');
+    }
+
+    public function wikipage($Wiki_ID){
+        $data = $this->ServiceWiki->GetWiki($Wiki_ID);
+        $this->view('wikis/wikipage', $data);
     }
 }
 

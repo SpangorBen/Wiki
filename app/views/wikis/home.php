@@ -111,7 +111,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
 						<?php $count++;?>
 						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+							<a href="<?php echo URLROOT . 'wikis/wikipage/'. $wiki->Wiki_ID?>" class="flex flex-wrap no-underline hover:no-underline">
 								<img src="https://source.unsplash.com/collection/3657445/800x600" class="h-full w-full rounded-t pb-6">
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6"><?php echo $wiki->Category_Title?></p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6"><?php echo $wiki->Title?></div>
@@ -132,7 +132,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 					<?php foreach(array_slice($data['wikis'], 2) as $wiki){?>
 					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
 						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+							<a href="<?php echo URLROOT . 'wikis/wikipage/'. $wiki->Wiki_ID?>" class="flex flex-wrap no-underline hover:no-underline">
 								<img src="https://source.unsplash.com/collection/225/800x600" class="h-64 w-full rounded-t pb-6">
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6"><?php echo $wiki->Category_Title?></p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6"><?php echo $wiki->Title?></div>
