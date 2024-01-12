@@ -65,7 +65,7 @@ class ServiceUser implements IServiceUser
                     $_SESSION['user_id'] = $result->ID_User;
                 }
                 if($result->Role == 1){
-                    $_SESSION['user'] = 'client';
+                    $_SESSION['user'] = 'author';
                     $_SESSION['user_id'] = $result->ID_User;
                 }
             } else {

@@ -29,6 +29,25 @@ class Dashboard extends Controller {
         redirect('dashboard/home');
     }
 
+    public function editCategory(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $this->Category->Category_ID = $_POST['catId'];
+            $this->Category->Title = $_POST['title'];
+            $this->Category->Description = $_POST['description'];
+            $this->ServiceCategory->Update($this->Category);
+        }
+        redirect('dashboard/home');
+    }
+
+    public function editTag(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $this->Tag->Tag_ID = $_POST['tagId'];
+            $this->Tag->Title = $_POST['tagTitle'];
+            $this->ServiceTag->Update($this->Tag);
+        }
+        redirect('dashboard/tags');
+    }
+
     public function deleteCategory($Category_ID){
         $this->ServiceCategory->Delete($Category_ID);
         redirect('dashboard/home');

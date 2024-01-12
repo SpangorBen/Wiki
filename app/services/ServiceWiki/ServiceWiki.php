@@ -78,7 +78,6 @@ class ServiceWiki implements IServiceWiki
         INNER JOIN Users ON Users.User_ID = Wiki.User_ID
         WHERE Wiki.Wiki_ID = :id");
         $this->db->bind(':id', $Wiki_ID);
-        // $this->db->execute();
         return $this->db->single();
     }
 
@@ -90,6 +89,21 @@ class ServiceWiki implements IServiceWiki
             $this->db->bind(':Tag_ID', $Tag_ID);
             $this->db->bind(':Wiki_ID', $Wiki_ID);
             $this->db->execute();
+        } catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function AuthorWikis($User_ID){
+        try{
+            $this->db->query("SELECT Wiki.*, Category.Title AS Category_Title, Users.Name AS Name
+            FROM Wiki
+            INNER JOIN Category ON Category.Category_ID = Wiki.Category_ID
+            INNER JOIN Users ON Users.User_ID = Wiki.User_ID
+            WHERE Wiki.User_ID = :User_ID");
+            $this->db->bind(':User_ID',$User_ID);
+            $data = $this->db->resultSet();
+            return ($data);
         } catch(PDOException $e){
             die($e->getMessage());
         }

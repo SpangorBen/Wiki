@@ -27,8 +27,11 @@ class ServiceTag implements IServiceTag
     public function Update(Tag $tag)
     {
         // Implement the method here
+        print_r($tag->Title);
+        echo "asd";
         try{
-            $this->db->query("UPDATE Tags SET Title = :Title");
+            $this->db->query("UPDATE Tags SET Title = :Title WHERE Tag_ID = :Tag");
+            $this->db->bind(':Tag', $tag->Tag_ID);
             $this->db->bind(':Title', $tag->Title);
 
             $this->db->execute();

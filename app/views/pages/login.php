@@ -23,7 +23,7 @@ backdrop-filter: blur(9.6px);
 -webkit-backdrop-filter: blur(9.6px);
 border: 1px solid rgba(255, 255, 255, 0.3);">
           <div class="md:max-w-md w-full sm:px-6 py-4 bg-[#47548C] rounded-xl">
-            <form>
+            <form action="<?php echo URLROOT?>pages/loginMethode" method="post">
               <div class="mb-12">
                 <h3 class="text-3xl font-extrabold">Sign in</h3>
                 <p class="text-sm mt-4 ">Don't have an account <a href="register" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>

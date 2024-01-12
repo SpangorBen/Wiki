@@ -15,6 +15,20 @@ class Pages extends Controller
         $this->view('pages/login');
     }
 
+    public function loginMethode(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['email'];
+            $pw = $_POST['password'];
+            $this->ServiceUser->authenticate($email, $pw);
+        }
+        if($_SESSION['user'] == 'admin'){
+            redirect('dashboard/home');
+        }
+        if($_SESSION['user'] == 'author'){
+            redirect('wikis/home');
+        }
+    }
+
     public function register(){
         $this->view('pages/register');
     }
@@ -27,14 +41,24 @@ class Pages extends Controller
             $this->User->Password = $pw;
             $this->ServiceUser->Add($this->User);
         }
-        redirect('pages/register');
+        $this->createUserSession($this->User);
+        redirect('wikis/home');
     }
 
     public function createUserSession($user)
     {
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_email'] = $user->email;
-        $_SESSION['auth'] = true;
+        $_SESSION['user_id'] = $user->User_ID;
+        $_SESSION['user_email'] = $user->Email;
+        $_SESSION['user'] = 'author';
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user']);
+        session_destroy();
+        redirect('pages/login');
     }
 
     public function test(){

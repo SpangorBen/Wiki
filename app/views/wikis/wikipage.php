@@ -24,7 +24,7 @@
         <div class="container mx-auto flex items-center">
 		    <div class="flex text-white font-extrabold">
 				<a class="flex text-white text-base no-underline hover:text-white hover:no-underline" href="#"> 
-					👻 <span class="hidden w-0 md:w-auto md:block pl-1">Ghostwind CSS</span>
+					<span class="hidden w-0 md:w-auto md:block pl-1">Wikis</span>
 				</a>
             </div>
 			<div class="flex pl-4 text-sm">
@@ -52,7 +52,7 @@
 			<div class="flex flex-wrap items-center content-center">
 				<div class="flex w-1/2 justify-start text-white font-extrabold">
 					<a class="flex text-gray-900 no-underline hover:text-gray-900 hover:no-underline pl-2" href="#">
-						👻 <span class="hidden w-0 md:w-auto md:block pl-1">Ghostwind CSS</span>
+						<span class="hidden w-0 md:w-auto md:block pl-1">Wikis</span>
 					</a>
 				</div>
 				<div class="flex w-1/2 justify-end content-center">		
@@ -74,8 +74,8 @@
 	
 	<!--Title-->
 	<div class="text-center pt-16 md:pt-32">
-		<p class="text-sm md:text-base text-green-500 font-bold"><?php echo $data->Created_Date?><span class="text-gray-900">/</span> <?php echo $data->Category_Title?></p>
-		<h1 class="font-bold break-normal text-3xl md:text-5xl"><?php echo $data->Title?></h1>
+		<p class="text-sm md:text-base text-green-500 font-bold"><?php echo $data['wiki']->Created_Date?><span class="text-gray-900">/</span> <?php echo $data['wiki']->Category_Title?></p>
+		<h1 class="font-bold break-normal text-3xl md:text-5xl"><?php echo $data['wiki']->Title?></h1>
 	</div>
 
 	<!--image-->
@@ -93,11 +93,11 @@
 
 				<!--Lead Para-->
 				<p class="text-2xl md:text-3xl mb-5">
-					👋 Welcome fellow Wiki reader.<br> This is your author: <a href="#" class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"><?php echo $data->Name?> </a> <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://demo.ghost.io/welcome"></a>
+					👋 Welcome fellow Wiki reader.<br> This is your author: <a href="#" class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"><?php echo $data['wiki']->Name?> </a> <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://demo.ghost.io/welcome"></a>
 				</p>
 
-				<p class="py-6 text-2xl"><?php echo $data->Description?></p>
-				<p class="py-6"><?php echo $data->Contenu?></p>				
+				<p class="py-6 text-2xl"><?php echo $data['wiki']->Description?></p>
+				<p class="py-6"><?php echo $data['wiki']->Contenu?></p>				
 												
 				<!--/ Post Content-->
 						
@@ -124,8 +124,8 @@
 				<div class="flex w-full items-center font-sans p-8 md:p-24">
 					<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
 					<div class="flex-1">
-						<p class="text-base font-bold text-base md:text-xl leading-none"><?php echo $data->Name?></p>
-						<p class="text-gray-600 text-xs md:text-base">Author description <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.tailwindtoolbox.com">More about me</a></p>
+						<p class="text-base font-bold text-base md:text-xl leading-none"><?php echo $data['wiki']->Name?></p>
+						<p class="text-gray-600 text-xs md:text-base">Author description <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="<?php echo URLROOT ?>wikis/author">More about me</a></p>
 					</div>
 					<div class="justify-end">
 
@@ -157,60 +157,27 @@
 	
 		<div class="container w-full max-w-6xl mx-auto px-2 py-8">
 			<div class="flex flex-wrap -mx-2">
-				<div class="w-full md:w-1/3 px-2 pb-12">
-					<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
-						<a href="#" class="no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/_AjqGGafofE/400x200" class="h-48 w-full rounded-t shadow-lg">
-								<div class="p-6 h-auto md:h-48">	
-									<p class="text-gray-600 text-xs md:text-sm">GETTING STARTED</p>
-									<div class="font-bold text-xl text-gray-900">Aperture Science</div>
-									<p class="text-gray-800 font-serif text-base mb-5">
-										I’ll be honest, we’re throwing science at the wall here to see what sticks. No idea what it’ll do. Probably nothing. Best case scenario you might get some super powers. Worst case, some tumors, which we’ll cut out.
-									</p>
-								</div>
-								<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
-									<img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-									<p class="text-gray-600 text-xs md:text-sm">2 MIN READ</p>
-								</div>
-						</a>
+				<?php $count = 0;?>
+				<?php foreach($data['authorwikis'] as $authWiki) {?>
+					<?php $count++;?>
+					<div class="w-full md:w-1/3 px-2 pb-12">
+						<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
+							<a href="#" class="no-underline hover:no-underline">
+									<img src="https://source.unsplash.com/_AjqGGafofE/400x200" class="h-48 w-full rounded-t shadow-lg">
+									<div class="p-6 h-auto md:h-48">	
+										<p class="text-gray-600 text-xs md:text-sm"><?php echo $authWiki->Category_Title?></p>
+										<div class="font-bold text-xl text-gray-900"><?php echo $authWiki->Title?></div>
+										<p class="text-gray-800 font-serif text-base mb-5"> <?php echo $authWiki->Description?></p>
+									</div>
+									<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
+										<img class="w-8 h-8 rounded-full mr-4 avatar" src="http://i.pravatar.cc/300" data-tippy-content="<?php echo $authWiki->Name?>" alt="Avatar of Author">
+										<p class="text-gray-600 text-xs md:text-sm">2 MIN READ</p>
+									</div>
+							</a>
+						</div>
 					</div>
-				</div>
-				<div class="w-full md:w-1/3 px-2 pb-12">
-					<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
-						<a href="#" class="no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/_AjqGGafofE/400x200" class="h-48 w-full rounded-t shadow">
-								<div class="p-6 h-auto md:h-48">	
-									<p class="text-gray-600 text-xs md:text-sm">UNDERWATER</p>
-									<div class="font-bold text-xl text-gray-900">Biolumini algae diatomeae ecology.</div>
-									<p class="text-gray-800 font-serif text-base mb-5">
-										Lorem ipsum dolor sit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-									</p>
-								</div>
-								<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
-									<img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-									<p class="text-gray-600 text-xs md:text-sm">4 MIN READ</p>
-								</div>
-						</a>
-					</div>
-				</div>
-				<div class="w-full md:w-1/3 px-2 pb-12">
-					<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
-						<a href="#" class="no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/DEa8_vxKlEo/400x200" class="h-48 w-full rounded-t shadow">
-								<div class="p-6 h-auto md:h-48">	
-									<p class="text-gray-600 text-xs md:text-sm">FOREST</p>
-									<div class="font-bold text-xl text-gray-900">What is life but a teardrop in the eye of infinity?</div>
-									<p class="text-gray-800 font-serif text-base mb-5">
-										Mollis pretium integer eros et dui orci, lectus nec elit sagittis neque. Dignissim ac nullam semper aliquet volutpat, ut scelerisque.
-									</p>
-								</div>
-								<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
-									<img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-									<p class="text-gray-600 text-xs md:text-sm">7 MIN READ</p>
-								</div>
-						</a>
-					</div>
-				</div>
+					<?php if($count == 3){break;}?>
+				<?php }?>
 			</div>
 		</div>
 
@@ -249,6 +216,12 @@
 		</div>
 	</footer>
 
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+	<script>
+		//Init tooltips
+		tippy('.avatar');
+	</script>
 <script>
 	/* Progress bar */
 	//Source: https://alligator.io/js/progress-bar-javascript-css-variables/

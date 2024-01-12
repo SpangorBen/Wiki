@@ -27,9 +27,16 @@ class ServiceCategory implements IServiceCategory
     public function Update(Category $category)
     {
         // Implement the method here
-        $this->db->query("UPDATE Category SET Title = :Title, Description = :Description");
-        $this->db->bind(':Title', $category->Title);
-        $this->db->bind(':Description', $category->Description);
+        try{
+
+            $this->db->query("UPDATE Category SET Title = :Title, Description = :Description WHERE Category_ID = :Category_ID");
+            $this->db->bind(':Category_ID', $category->Category_ID);
+            $this->db->bind(':Title', $category->Title);
+            $this->db->bind(':Description', $category->Description);
+            $this->db->execute();
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
 
     public function Delete($Category_ID)
@@ -49,7 +56,7 @@ class ServiceCategory implements IServiceCategory
     {
         // Implement the method here
         try{
-            $this->db->query("SELECT c.Category_ID, c.Title AS Title, 
+            $this->db->query("SELECT c.Category_ID, c.Description, c.Title AS Title, 
                 COUNT(w.Wiki_ID) AS Total_Wikis,
                 SUM(CASE WHEN w.Archived = 1 THEN 1 ELSE 0 END) AS Archived_Count
                 FROM Category c

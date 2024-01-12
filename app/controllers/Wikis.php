@@ -25,7 +25,7 @@ class Wikis extends Controller {
             $this->Wiki->Category_ID = $_POST['category'];
             $this->Wiki->Contenu = $_POST['contenu'];
             $this->Wiki->Description = $_POST['description'];
-            $this->Wiki->User_ID = '45';
+            $this->Wiki->User_ID = $_SESSION['user_id'];
             $wikiId = $this->Wiki->Wiki_ID;
             $this->ServiceWiki->Add($this->Wiki);
             $tags = isset($_POST['tag']) ? $_POST['tag'] : [];
@@ -42,7 +42,10 @@ class Wikis extends Controller {
     }
 
     public function wikipage($Wiki_ID){
-        $data = $this->ServiceWiki->GetWiki($Wiki_ID);
+        $data = [
+            'wiki' => $this->ServiceWiki->GetWiki($Wiki_ID),
+            'authorwikis' => $this->ServiceWiki->AuthorWikis($_SESSION['user_id'])
+        ];
         $this->view('wikis/wikipage', $data);
     }
 }
