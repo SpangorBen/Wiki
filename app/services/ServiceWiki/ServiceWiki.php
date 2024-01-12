@@ -94,6 +94,19 @@ class ServiceWiki implements IServiceWiki
         }
     }
 
+    public function GetWikiTags($Wiki_ID){
+        try{
+            $this->db->query("SELECT WikisTag.*, Tags.Title AS TTitle FROM WikisTag
+            INNER JOIN Tags ON Tags.Tag_ID = WikisTag.Tag_ID
+            WHERE Wiki_ID = :Wiki_ID");
+            $this->db->bind(':Wiki_ID', $Wiki_ID);
+
+            $data = $this->db->resultSet();
+            return $data;
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function AuthorWikis($User_ID){
         try{
             $this->db->query("SELECT Wiki.*, Category.Title AS Category_Title, Users.Name AS Name

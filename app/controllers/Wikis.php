@@ -44,9 +44,14 @@ class Wikis extends Controller {
     public function wikipage($Wiki_ID){
         $data = [
             'wiki' => $this->ServiceWiki->GetWiki($Wiki_ID),
-            'authorwikis' => $this->ServiceWiki->AuthorWikis($_SESSION['user_id'])
+            'authorwikis' => $this->ServiceWiki->AuthorWikis($_SESSION['user_id']),
+            'wikitags' => $this->ServiceWiki->GetWikiTags($Wiki_ID)
         ];
         $this->view('wikis/wikipage', $data);
+    }
+
+    public function wikiauthor(){
+        $this->view('wikis/wikiauthor');
     }
 }
 

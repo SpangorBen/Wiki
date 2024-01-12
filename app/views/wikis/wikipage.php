@@ -17,30 +17,30 @@
 	 .scroll-top {position: fixed;z-index: 50;padding: 0;right: 30px;bottom: 100px;opacity: 0;visibility: hidden;transform: translateY(15px);height: 46px;width: 46px;cursor: pointer;display: flex;align-items: center;justify-content: center;border-radius: 50%;transition: all .4s ease;border: none;box-shadow: inset 0 0 0 2px #ccc;color: #ccc;background-color: #fff;}.scroll-top.is-active {opacity: 1;visibility: visible;transform: translateY(0);}.scroll-top .icon-tabler-arrow-up {position: absolute;stroke-width: 2px;stroke: #333;}.scroll-top svg path {fill: none;}.scroll-top svg.progress-circle path {stroke: #333;stroke-width: 4;transition: all .4s ease;}.scroll-top:hover {color: var(--ghost-accent-color);}.scroll-top:hover .progress-circle path, .scroll-top:hover .icon-tabler-arrow-up {stroke: var(--ghost-accent-color);}
 	</style>
 </head>
-<body class="bg-white font-sans leading-normal tracking-normal">
+<body class="bg-shite font-sans leading-normal tracking-normal">
 
 	<!--Nav-->
 	<nav class="bg-gray-900 p-4 mt-0 w-full">
         <div class="container mx-auto flex items-center">
 		    <div class="flex text-white font-extrabold">
-				<a class="flex text-white text-base no-underline hover:text-white hover:no-underline" href="#"> 
+				<a class="flex text-white text-base no-underline hover:text-white hover:no-underline" href="home"> 
 					<span class="hidden w-0 md:w-auto md:block pl-1">Wikis</span>
 				</a>
             </div>
 			<div class="flex pl-4 text-sm">
 				<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
 				  <li class="mr-2">
-					<a class="inline-block py-2 px-2 text-white no-underline" href="index.html">HOME</a>
+					<a class="inline-block py-2 px-2 text-white no-underline" href="home">HOME</a>
 				  </li>
+				  <?php if($_SESSION['user'] == 'author'){?>
 				  <li class="mr-2">
-					<a class="inline-block text-indigo-200 no-underline hover:text-gray-100 hover:text-underline py-2 px-2" href="#">LINK</a>
+					<a class="inline-block text-indigo-200 no-underline hover:text-gray-100 hover:text-underline py-2 px-2" href="../pages/logout">logout</a>
 				  </li>
-				  <li class="mr-2">
-					<a class="inline-block text-indigo-200 no-underline hover:text-indigo-100 hover:text-underline py-2 px-2" href="#">LINK</a>
-				  </li>
+				  <?php }else{?>
 					<li class="mr-2">
-					<a class="inline-block text-indigo-200 no-underline hover:text-indigo-100 hover:text-underline py-2 px-2" href="#">LINK</a>
+					<a class="inline-block text-indigo-200 no-underline hover:text-gray-100 hover:text-underline py-2 px-2" href="../pages/login">login</a>
 				  </li>
+				  <?php }?>
 				</ul>
 			</div>
         </div>
@@ -76,6 +76,9 @@
 	<div class="text-center pt-16 md:pt-32">
 		<p class="text-sm md:text-base text-green-500 font-bold"><?php echo $data['wiki']->Created_Date?><span class="text-gray-900">/</span> <?php echo $data['wiki']->Category_Title?></p>
 		<h1 class="font-bold break-normal text-3xl md:text-5xl"><?php echo $data['wiki']->Title?></h1>
+		<?php foreach($data['wikitags'] as $tags){?>
+		<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"><?php echo $tags->TTitle?></span>
+		<?php }?>
 	</div>
 
 	<!--image-->
@@ -105,14 +108,14 @@
 			
 			
 				<!--Subscribe-->	
-				<div class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center">
+				<div class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center" style="background-color: #BE4BFF;">
 					<h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to the wikis</h2>
 					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest wikis delivered right to your inbox</h3>
 					<div class="w-full text-center pt-4">
 						<form action="#">
-							<div class="max-w-sm mx-auto p-1 pr-0 flex flex-wrap items-center">
+							<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
 								<input type="email" placeholder="youremail@example.com" class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none">
-								<button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+								<button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-blue-400">Subscribe</button>
 							</div>
 						</form>
 					</div>
@@ -125,36 +128,18 @@
 					<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
 					<div class="flex-1">
 						<p class="text-base font-bold text-base md:text-xl leading-none"><?php echo $data['wiki']->Name?></p>
-						<p class="text-gray-600 text-xs md:text-base">Author description <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="<?php echo URLROOT ?>wikis/author">More about me</a></p>
+						<p class="text-gray-600 text-xs md:text-base">Author description <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="<?php echo URLROOT ?>wikis/wikiauthor">More about me</a></p>
 					</div>
-					<div class="justify-end">
 
 				</div>
-				<!--/Author-->
-			
-		</div>
 	
+
+		</div>
 
 	</div>
 
-		</div>
-
-
-<!--   Scroll Top Button  -->
-    <button class="btn-toggle-round scroll-top js-scroll-top" type="button" title="Scroll to top">
-      <svg class="progress-circle" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="cuurentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <line x1="12" y1="5" x2="12" y2="19" />
-        <line x1="18" y1="11" x2="12" y2="5" />
-        <line x1="6" y1="11" x2="12" y2="5" />
-      </svg>
-    </button>
-
 	<div class="bg-gray-200">
-	
+
 		<div class="container w-full max-w-6xl mx-auto px-2 py-8">
 			<div class="flex flex-wrap -mx-2">
 				<?php $count = 0;?>
@@ -181,8 +166,7 @@
 			</div>
 		</div>
 
-
-		</div>
+	</div>
 
 	<footer class="bg-gray-900">	
 		<div class="container max-w-6xl mx-auto flex items-center px-2 py-8">
@@ -190,28 +174,17 @@
 			<div class="w-full mx-auto flex flex-wrap items-center">
 				<div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
 					<a class="text-gray-900 no-underline hover:text-gray-900 hover:no-underline" href="#">
-						 <span class="text-base text-gray-200">Ghostwind</span>
+						 <span class="text-base text-gray-200">Wikis</span>
 					</a>
 				</div>
 				<div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
 					<ul class="list-reset flex justify-center flex-1 md:flex-none items-center">
 					  <li>
-						<a class="inline-block py-2 px-3 text-white no-underline" href="index.html">HOME</a>
-					  </li>
-					  <li>
-						<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
-					  </li>
-					  <li>
-						<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
-					  </li>
-						<li>
-						<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
+						<a class="inline-block py-2 px-3 text-white no-underline" href="home">HOME</a>
 					  </li>
 					</ul>
 				</div>
 			</div>
-        
-
 		
 		</div>
 	</footer>
@@ -222,44 +195,6 @@
 		//Init tooltips
 		tippy('.avatar');
 	</script>
-<script>
-	/* Progress bar */
-	//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
-	var h = document.documentElement,
-		  b = document.body,
-		  st = 'scrollTop',
-		  sh = 'scrollHeight',
-		  progress = document.querySelector('#progress'),
-		  scroll;
-	var scrollpos = window.scrollY;
-	var header = document.getElementById("header");
-
-	document.addEventListener('scroll', function() {
-
-		/*Refresh scroll % width*/
-		scroll = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-		progress.style.setProperty('--scroll', scroll + '%');
-
-		/*Apply classes for slide in bar*/
-		scrollpos = window.scrollY;
-
-    if(scrollpos > 100){
-      header.classList.remove("hidden");
-	  header.classList.remove("fadeOutUp");
-	  header.classList.add("slideInDown");
-    }
-    else {
-	  header.classList.remove("slideInDown");
-      header.classList.add("fadeOutUp");
-	  header.classList.add("hidden");
-    }
-
-	});
-
-// scroll to top	
-const t=document.querySelector(".js-scroll-top");if(t){t.onclick=()=>{window.scrollTo({top:0,behavior:"smooth"})};const e=document.querySelector(".scroll-top path"),o=e.getTotalLength();e.style.transition=e.style.WebkitTransition="none",e.style.strokeDasharray=`${o} ${o}`,e.style.strokeDashoffset=o,e.getBoundingClientRect(),e.style.transition=e.style.WebkitTransition="stroke-dashoffset 10ms linear";const n=function(){const t=window.scrollY||window.scrollTopBtn||document.documentElement.scrollTopBtn,n=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight),s=Math.max(document.documentElement.clientHeight,window.innerHeight||0);var l=o-t*o/(n-s);e.style.strokeDashoffset=l};n();const s=100;window.addEventListener("scroll",(function(e){n();(window.scrollY||window.scrollTopBtn||document.getElementsByTagName("html")[0].scrollTopBtn)>s?t.classList.add("is-active"):t.classList.remove("is-active")}),!1)}	
-
-</script>
 
 </body>
 </html>
