@@ -16,8 +16,12 @@ class Dashboard extends Controller {
     }
 
     public function home(){
-        $data = $this->ServiceCategory->Display();
-        $this->view('dashboard/home', $data);
+        if($_SESSION['user'] == 'admin'){
+            $data = $this->ServiceCategory->Display();
+            $this->view('dashboard/home', $data);
+        } else{
+            redirect('pages/login');
+        }
     }
 
     public function addCategory(){

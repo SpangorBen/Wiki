@@ -62,14 +62,16 @@ class ServiceUser implements IServiceUser
             if (password_verify($password, $result->Password)) {
                 if($result->Role == 0){
                     $_SESSION['user'] = 'admin';
-                    $_SESSION['user_id'] = $result->ID_User;
+                    $_SESSION['user_id'] = $result->User_ID;
                 }
                 if($result->Role == 1){
+                    $_SESSION['name'] = $result->Name;
                     $_SESSION['user'] = 'author';
-                    $_SESSION['user_id'] = $result->ID_User;
+                    $_SESSION['user_id'] = $result->User_ID;
                 }
             } else {
                 echo "<script>alert('Wrong Password')</script>";
+                redirect('pages/login');
             }
         }
         return false;

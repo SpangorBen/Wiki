@@ -35,14 +35,19 @@ class Pages extends Controller
 
     public function addUser(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->User->Name = $_POST['name'];
-            $this->User->Email = $_POST['email'];
-            $pw = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $this->User->Password = $pw;
-            $this->ServiceUser->Add($this->User);
+
+            if($this->ServiceUser->findUserByEmail($_POST['email'])){
+                redirect('pages/register');
+            } else{
+                $this->User->Name = $_POST['name'];
+                $this->User->Email = $_POST['email'];
+                $pw = password_hash($_POST['password'], PASSWORD_BCRYPT);
+                $this->User->Password = $pw;
+                $this->ServiceUser->Add($this->User);
+                $this->createUserSession($this->User);
+                redirect('wikis/home');
+            }
         }
-        $this->createUserSession($this->User);
-        redirect('wikis/home');
     }
 
     public function createUserSession($user)

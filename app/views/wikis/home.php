@@ -86,10 +86,17 @@ border: 1px solid rgba(255, 255, 255, 0.3);">
 						<div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
 							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg" style="background-color: #D592FF;">
 								<p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow reader</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-                                Get ahead of the curve with our newly unveiled selection of trendy wikis, offering unique insights and in-depth exploration into contemporary themes
-								</p>
+								<?php if($_SESSION['user'] === 'author'){?>
+									<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome Back <?php echo $_SESSION['name']?>!</div>
+									<p class="text-gray-800 font-serif text-base px-6 mb-5">
+									We invite you to contribute by publishing and writing engaging content and wikis on our website. Your unique insights will enrich the platform and enhance the experience for all users. Take the lead and share your knowledge with us. Start publishing now and be a part of our collaborative journey!<br>Happy writing! 🚀📝
+									</p>
+								<?php } else{?>
+									<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow reader</div>
+									<p class="text-gray-800 font-serif text-base px-6 mb-5">
+										Get ahead of the curve with our newly unveiled selection of trendy wikis, offering unique insights and in-depth exploration into contemporary themes
+									</p>
+								<?php }?>
 							</div>
 
 							<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
